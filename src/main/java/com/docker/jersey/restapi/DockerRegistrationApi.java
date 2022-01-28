@@ -4,7 +4,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
 
-@Path("/dockerRegistration/")
+@Path("/dockerRegistration")
 public class DockerRegistrationApi {
     @POST
     public Response createImage() {
@@ -12,17 +12,20 @@ public class DockerRegistrationApi {
     }
 
     @GET
-    public Response getImage() {
+    @Path("/{id}")
+    public Response getImage(@PathParam("id") int id) {
         return Response.status(201).entity(Optional.empty()).build();
     }
 
     @PUT
-    public Response updateImage() {
+    @Path("/{param}")
+    public Response updateImage(@PathParam("param") String param) {
         return Response.status(204).entity(Optional.empty()).build();
     }
 
     @DELETE
-    public Response deleteImage() {
+    @Path("/{id}")
+    public Response deleteImage(@PathParam("id") int id) {
         return Response.status(202).entity(Optional.empty()).build();
     }
 }
