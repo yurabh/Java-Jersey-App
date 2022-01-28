@@ -12,20 +12,20 @@ public class DockerRegistrationApi {
     }
 
     @GET
-    @Path("/{id}")
-    public Response getImage(@PathParam("id") int id) {
+    @Path("/{dockerId}")
+    public Response getImage(@PathParam("dockerId") String dockerId) {
         return Response.status(501).entity(Optional.empty()).build();
     }
 
     @PUT
-    @Path("/{param}")
-    public Response updateImage(@PathParam("param") String param) {
+    @Path("/{dockerId}")
+    public Response updateImage(@PathParam("dockerId") String dockerId) {
         return Response.status(501).entity(Optional.empty()).build();
     }
 
     @DELETE
-    @Path("/{id}")
-    public Response deleteImage(@PathParam("id") int id) {
+    @Path("/{dockerId}")
+    public Response deleteImage(@PathParam("dockerId") String dockerId) {
         return Response.status(501).entity(Optional.empty()).build();
     }
 }
