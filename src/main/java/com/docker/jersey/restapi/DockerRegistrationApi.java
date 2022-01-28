@@ -1,5 +1,7 @@
 package com.docker.jersey.restapi;
 
+import com.docker.jersey.model.DockerParameters;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
@@ -7,7 +9,7 @@ import java.util.Optional;
 @Path("/dockerRegistration")
 public class DockerRegistrationApi {
     @POST
-    public Response createImage() {
+    public Response createImage(DockerParameters dockerParameters) {
         return Response.status(501).entity(Optional.empty()).build();
     }
 
