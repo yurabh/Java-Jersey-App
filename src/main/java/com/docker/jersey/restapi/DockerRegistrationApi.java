@@ -1,33 +1,48 @@
 package com.docker.jersey.restapi;
 
+import com.docker.jersey.factory.FactoryService;
 import com.docker.jersey.model.DockerParameters;
+import com.docker.jersey.service.DockerRegistrationService;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.util.Optional;
 
 @Path("/dockerRegistration")
 public class DockerRegistrationApi {
+
+    private static final Logger logger = Logger.getLogger(DockerRegistrationApi.class);
+    private DockerRegistrationService delegate;
+
+    public DockerRegistrationApi() {
+        this.delegate = FactoryService.createDockerRegistrationService();
+        logger.info("Object created in constructor by default");
+    }
+
     @POST
     public Response createImage(DockerParameters dockerParameters) {
-        return Response.status(501).entity(Optional.empty()).build();
+        logger.info("Method createImage without realization in DockerRegistrationApi class");
+        return delegate.createImage(dockerParameters);
     }
 
     @GET
     @Path("/{dockerId}")
     public Response getImage(@PathParam("dockerId") String dockerId) {
-        return Response.status(501).entity(Optional.empty()).build();
+        logger.info("Method getImage without realization in DockerRegistrationApi class");
+        return delegate.getImage(dockerId);
     }
 
     @PUT
     @Path("/{dockerId}")
     public Response updateImage(@PathParam("dockerId") String dockerId) {
-        return Response.status(501).entity(Optional.empty()).build();
+        logger.info("Method update Image without realization in DockerRegistrationApi class");
+        return delegate.updateImage(dockerId);
     }
 
     @DELETE
     @Path("/{dockerId}")
     public Response deleteImage(@PathParam("dockerId") String dockerId) {
-        return Response.status(501).entity(Optional.empty()).build();
+        logger.info("Method deleteImage without realization in DockerRegistrationApi class");
+        return delegate.deleteImage(dockerId);
     }
 }
