@@ -5,10 +5,14 @@ import com.docker.jersey.model.DockerParameters;
 import com.docker.jersey.service.DockerRegistrationService;
 import org.apache.log4j.Logger;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("/dockerRegistration")
+@Produces("application/json")
+@Consumes("application/json")
 public class DockerRegistrationApi {
 
     private static final Logger logger = Logger.getLogger(DockerRegistrationApi.class);
@@ -20,28 +24,28 @@ public class DockerRegistrationApi {
     }
 
     @POST
-    public Response createImage(DockerParameters dockerParameters) {
+    public Response createImage(@NotNull @Valid DockerParameters dockerParameters) {
         logger.info("Method createImage without realization in DockerRegistrationApi class");
         return delegate.createImage(dockerParameters);
     }
 
     @GET
     @Path("/{dockerId}")
-    public Response getImage(@PathParam("dockerId") String dockerId) {
+    public Response getImage(@NotNull @PathParam("dockerId") String dockerId) {
         logger.info("Method getImage without realization in DockerRegistrationApi class");
         return delegate.getImage(dockerId);
     }
 
     @PUT
     @Path("/{dockerId}")
-    public Response updateImage(@PathParam("dockerId") String dockerId) {
+    public Response updateImage(@NotNull @PathParam("dockerId") String dockerId) {
         logger.info("Method update Image without realization in DockerRegistrationApi class");
         return delegate.updateImage(dockerId);
     }
 
     @DELETE
     @Path("/{dockerId}")
-    public Response deleteImage(@PathParam("dockerId") String dockerId) {
+    public Response deleteImage(@NotNull @PathParam("dockerId") String dockerId) {
         logger.info("Method deleteImage without realization in DockerRegistrationApi class");
         return delegate.deleteImage(dockerId);
     }
