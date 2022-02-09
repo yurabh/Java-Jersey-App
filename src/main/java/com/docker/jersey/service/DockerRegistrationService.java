@@ -9,7 +9,7 @@ public abstract class DockerRegistrationService {
 
     public abstract Response getImage(String dockerId);
 
-    public abstract Response updateImage(String dockerId);
+    public abstract Response updateImage(String dockerId ,DockerParameters dockerParameters);
 
     public abstract Response deleteImage(String dockerId);
 }

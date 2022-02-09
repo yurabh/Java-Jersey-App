@@ -23,7 +23,7 @@ public class DockerRegistrationServiceImpl extends DockerRegistrationService {
     }
 
     @Override
-    public Response updateImage(String dockerId) {
+    public Response updateImage(String dockerId, DockerParameters dockerParameters) {
         logger.info("UpdateImage method without realization in DockerRegistrationServiceImpl class");
         return Response.status(501).build();
     }
