@@ -5,3 +5,5 @@ target
 *.iml
 
 src/main/resources/log4j.properties
+
+log_file.log

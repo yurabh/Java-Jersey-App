@@ -1,12 +1,15 @@
 package com.docker.jersey.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class DockerParameters {
     @NotNull
     private String from;
