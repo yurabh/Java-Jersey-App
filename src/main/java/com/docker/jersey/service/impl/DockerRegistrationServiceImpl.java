@@ -12,7 +12,7 @@ public class DockerRegistrationServiceImpl extends DockerRegistrationService {
 
     @Override
     public Response createImage(DockerParameters dockerParameters) {
-        logger.info("CreateImage method without realization in DockerRegistrationServiceImpl class");
+        logger.info("CreateImage method without realization in DockerRegistrationServiceImpl class ");
         return Response.status(501).build();
     }
 
